@@ -1,3 +1,5 @@
+# mermaid.js
+
 ```mermaid
 sequenceDiagram
     autonumber
