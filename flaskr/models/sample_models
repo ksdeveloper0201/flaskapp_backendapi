@@ -1,0 +1,14 @@
+from database import db
+
+
+class SecondSample(db.Model):
+    __bind_key__ = 'second_sample_db'  # config.pyで設定したもの
+    __tablename__ = 'second_sample_table'
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String)
+    date = db.Column(db.DATETIME)
+
+    def __init__(self, id, name, date):
+        self.id = id
+        self.name = name
+        self.date = date

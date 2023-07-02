@@ -1,7 +1,13 @@
-import flask import Blueprint
+from flask import Blueprint
 
 bp = ("world", __name__)
 
-@bp.route("/worlds", ["GET"])
+
+@bp.route("/", ["GET"])
 def hello_world():
-    return "%<p>hello world!!</p>%"
+    return "hello world!"
+
+
+@bp.route("/world", ["GET"])
+def db_world():
+    return "db world!"
