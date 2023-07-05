@@ -1,5 +1,6 @@
-from sqlalchemy.types import Column, String, Integer, DATETIME, SmallInteger, DECIMAL
+from sqlalchemy.types import String, Integer, DATETIME, SmallInteger, DECIMAL
 from flaskr.database.database import db
+from sqlalchemy.schema import Column
 
 
 class City(db.Model):
@@ -14,9 +15,9 @@ class City(db.Model):
 
 class Country(db.Model):
     __tablename__ = "country"
-    code = Column("Code", String, primary_key=True)
-    name = Column("Name", String)
-    countinent = Column("Countinent", enumerate(
+    code = Column(String, primary_key=True)
+    name = Column(String)
+    countinent = Column(enumerate(
         'Asia', 'Europe', 'North America', 'Africa', 'Oceania', 'Antarctica', 'South America'))
     region = Column("Region", String)
     surface_area = Column("SurfaceArea", DECIMAL(10, 2))
