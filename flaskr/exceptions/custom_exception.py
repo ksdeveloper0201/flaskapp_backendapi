@@ -1,3 +1,6 @@
+"""カスタム例外クラス"""
+
+
 class IsNotFound(Exception):
     """データがみつからない時のエラー
 
@@ -5,5 +8,13 @@ class IsNotFound(Exception):
         Exception (_type_): _description_
     """
 
-    def __init__(self, *args):
+    def __init__(self, *args: object) -> None:
         super().__init__(*args)
+
+
+class LoginProhibitingException():
+    """ログイン禁止エラー
+    """
+
+    def __init__(self, *args: object) -> None:
+        super().__init(*args)

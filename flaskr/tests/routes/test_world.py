@@ -1,4 +1,5 @@
 import pytest
+from flaskr.providers import WorldProvider
 
 
 def test_get_city(client):
@@ -10,7 +11,7 @@ def test_get_city(client):
     assert response.json == {"message": "Example response"}
 
 
-def test_get_city_with_server_error(client,mocker):
+def test_get_city_with_server_error(client, mocker):
     """server_error時
     Args:
         client (_type_): _description_
@@ -22,10 +23,13 @@ def test_get_city_with_server_error(client,mocker):
 
     assert response.status_code == 500
 
+
 def test_get_city_with_not_found(client):
     """_summary_
 
     Args:
         client (_type_): _description_
     """
-    response = 
+    response = client.get("/city")
+
+    assert response.status_code == 403

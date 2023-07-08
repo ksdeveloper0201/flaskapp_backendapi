@@ -1,6 +1,7 @@
 from flask import Blueprint, jsonify
-from flaskr.exceptions import IsNotFound
+from flaskr.exceptions.custom_exception import IsNotFound
 from flaskr.responses import api_response
+from flaskr.providers.world_provider import WorldProvider
 
 bp = Blueprint("world", __name__)
 
@@ -19,6 +20,7 @@ def get_city():
     """
     try:
         city_name_list = True
+        provider = WorldProvider()
         response = {"message": "Example response"}
         return jsonify(response), 200
     except IsNotFound:
