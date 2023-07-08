@@ -11,5 +11,5 @@ class DbOperation:
             self.session = db.session()
 
     def close_session(self):
-        if self.session:
+        if self.session is not None:
             self.session.close()
