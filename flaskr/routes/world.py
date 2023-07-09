@@ -21,11 +21,13 @@ def get_city():
     try:
         city_name_list = True
         provider = WorldProvider()
-        response = {"message": "Example response"}
-        return jsonify(response), 200
+        world_list = provider.get_city_list()
     except IsNotFound:
         print(ex)
-        return response.not_found()
+        return api_response.not_find()
     except Exception as ex:
         print(ex)
-        return api_response.not_find()
+        return api_response.handle_exception()
+    finally:
+        pass
+    return api_response.success(world_list)

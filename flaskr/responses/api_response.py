@@ -23,3 +23,16 @@ def handle_exception(message="Bad Request"):
     """
     error_response = make_response({"message": message})
     return api_response(error_response, response=404)
+
+
+def not_find(message="not find"):
+    """exception発生
+
+    Args:
+        error (_type_): _description_
+
+    Returns:
+        _type_: _description_
+    """
+    error_response = make_response({"message": message})
+    return api_response(error_response, response=403)
