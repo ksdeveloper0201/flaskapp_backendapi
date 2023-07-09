@@ -23,7 +23,6 @@ def get_city():
         provider = WorldProvider()
         world_list = provider.get_city_list()
     except IsNotFound:
-        print(ex)
         return api_response.not_find()
     except Exception as ex:
         print(ex)
@@ -31,3 +30,21 @@ def get_city():
     finally:
         pass
     return api_response.success(world_list)
+
+
+@bp.route("/city/<city_id>", methods=["GET"])
+def get_city_info(city_id):
+    """idに該当する都市の情報を取得
+
+    """
+    try:
+        provider = WorldProvider()
+        city_info = provider.get_city_info(city_id)
+    except IsNotFound:
+        return api_response.not_find()
+    except Exception as ex:
+        print(ex)
+        return api_response.handle_exception()
+    finally:
+        pass
+    return api_response.success(city_info)
