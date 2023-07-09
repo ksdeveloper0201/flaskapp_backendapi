@@ -17,3 +17,14 @@ class WorldProvider():
                 "population": city.population
             })
         return data
+
+    def get_city_info(self, city_id):
+        city = self.world_service.fetch_city_info(city_id)
+        city_data = {
+            "id": city.id,
+            "name": city.name,
+            "country_code": city.country_code,
+            "district": city.district,
+            "population": city.population
+        }
+        return city_data

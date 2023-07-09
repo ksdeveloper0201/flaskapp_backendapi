@@ -17,3 +17,15 @@ class WorldService(DbOperation):
             return api_response.handle_exception("error発生")
         finally:
             self.close_session()
+
+    def fetch_city_info(self, city_id):
+        try:
+            self.set_session()
+            city_data = self.session.query(
+                City).filter(City.id == city_id).first()
+            return city_data
+        except Exception as e:
+            print(e)
+            return api_response.handle_exception("error発生")
+        finally:
+            self.close_session()
