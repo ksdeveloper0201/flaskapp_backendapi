@@ -1,6 +1,6 @@
 dev container
 figma
-autodocstring etc...
+autodocstring etc...　
 
 コミットの際に自動でtestまで実行してくれるツール
 husky

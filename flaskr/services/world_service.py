@@ -4,17 +4,16 @@ from flaskr.responses import api_response
 
 
 class WorldService(DbOperation):
-    def __init__() -> None:
+    def __init__(self) -> None:
         super().__init__()
 
     def fetch_city(self):
         try:
             self.set_session()
-            return self.session().query(City).all()
+            return (self.session.query(City).all())
 
         except Exception as e:
             print(e)
             return api_response.handle_exception("error発生")
         finally:
-            pass
-        self.close_session()
+            self.close_session()

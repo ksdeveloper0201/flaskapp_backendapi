@@ -5,7 +5,7 @@ class WorldProvider():
     def __init__(self):
         self.world_service = WorldService()
 
-    def get_world_list(self):
+    def get_city_list(self):
         city_list = self.world_service.fetch_city()
         data = []
         for city in city_list:
